@@ -4,6 +4,7 @@
 
 #include <filesystem>
 #include <vector>
+#include <stack>
 #include "Point.h"
 
 
@@ -99,18 +100,18 @@ void QuickSort(vector<Point>& points, const vector<Point>::size_type low,
 
 vector<Point>::size_type FilterCollinearPoints(vector<Point>& points,
                                                const vector<Point>::size_type
-                                               listSize)
+                                               n)
 {
-    int newSize = 1;
+    int m = 1;
 
-    for (int i = 2; i < listSize; i++)
+    for (int i = 1; i < n; i++)
     {
-        if (const int orient = Orientation(points[0], points[newSize],
+        if (const int orient = Orientation(points[0], points[m],
                                            points[i]); orient != 0)
         // counter- or clockwise
         {
-            newSize++;
-            points[newSize] = points[i];
+            m++;
+            points[m] = points[i];
         }
         else
             points[newSize] = points[i];
@@ -121,9 +122,9 @@ vector<Point>::size_type FilterCollinearPoints(vector<Point>& points,
 
 vector<Point> GrahamScan(vector<Point>& points)
 {
-    vector<Point>::size_type size = points.size();
+    vector<Point>::size_type n = points.size();
 
-    if (size < 3)
+    if (n < 3)
     {
         vector<Point> emptyList;
         return emptyList;
@@ -132,21 +133,36 @@ vector<Point> GrahamScan(vector<Point>& points)
     BottomPoint(points);
     QuickSort(points, 1, size - 1);
 
-    const vector<Point>::size_type listSize = FilterCollinearPoints(points, size);
+    /*const vector<Point>::size_type listSize = FilterCollinearPoints(points, size);
     if (listSize < 3)
     {
         vector<Point> emptyList;
         return emptyList;
-    }
-    vector<Point> hullPoints;
-    hullPoints.push_back(points[0]);
-    hullPoints.push_back(points[1]);
-    //hullPoints.push_back(points[2]);
-    for (int i = 3; i < listSize; i++)
+    }*/
+    std::stack<Point> hull;
+    hull.push(points[0]);
+    hull.push(points[1]);
+    hull.push(points[2]);
+    for (int i = 3; i < n; i++)
     {
-        int orient = Orientation(points[size - 2], points[size - 1], points[i]);
+        while (hull.size() >= 2)
+        {
+            Point top = hull.top(); hull.pop();
+            Point nextToTop = hull.top();
+            if (orientation(nextToTop, top, points[i]) != 2)
+                continue;
+            hull.push(top);
+            break;
+        }
+        hull.push(points[i]);
+    }
+        /*
+    {
+
         //const int orient = Orientation();
-        while (hullPoints.size() > 1 && orient != 2) // not counter-clockwise
+        while (hullPoints.size() > 1 && orient = Orientation(
+            points[size - 2], points[size - 1],
+            points[i]) != 2) // not counter-clockwise
         {
             hullPoints.pop_back();
             size = points.size();
@@ -154,6 +170,6 @@ vector<Point> GrahamScan(vector<Point>& points)
                                   points[i]);
         }
         hullPoints.push_back(points[i]);
-    }
-    return hullPoints;
+    }*/
+    return hull;
 }

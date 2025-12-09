@@ -12,7 +12,7 @@
 int main()
 {
     std::ifstream InputFile;
-    InputFile.open("points.txt");
+    InputFile.open("Z:/CLionProjects/ConvexHullAlgorithmComparison/points.txt");
     if (!InputFile.is_open())
     {
         std::cerr << "ERROR: File not found." << std::endl;

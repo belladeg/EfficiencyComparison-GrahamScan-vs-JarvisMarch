@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD 23)
 
 add_executable(ConvexHullAlgorithmComparison main.cpp Point.h
         GrahamScan.cpp
-        JarvisMarch.cpp
+        JarvisMarch.cpp points.txt
 )
