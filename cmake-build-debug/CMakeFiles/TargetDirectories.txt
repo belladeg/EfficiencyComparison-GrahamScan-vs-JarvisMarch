@@ -1,0 +1,3 @@
+Z:/CLionProjects/ConvexHullAlgorithmComparison/cmake-build-debug/CMakeFiles/ConvexHullAlgorithmComparison.dir
+Z:/CLionProjects/ConvexHullAlgorithmComparison/cmake-build-debug/CMakeFiles/edit_cache.dir
+Z:/CLionProjects/ConvexHullAlgorithmComparison/cmake-build-debug/CMakeFiles/rebuild_cache.dir
