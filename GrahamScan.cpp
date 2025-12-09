@@ -119,7 +119,7 @@ vector<Point>::size_type FilterCollinearPoints(vector<Point>& points,
 }
 
 
-vector<Point> GrahamScan(vector<Point> &points)
+vector<Point> GrahamScan(vector<Point>& points)
 {
     vector<Point>::size_type size = points.size();
 

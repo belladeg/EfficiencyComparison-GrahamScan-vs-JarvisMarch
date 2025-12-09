@@ -2,9 +2,9 @@
  *
  */
 
+#include <fstream>
 #include <iostream>
 #include <vector>
-#include <fstream>
 #include "Point.h"
 //#include "GrahamScan.cpp"
 //#include "JarvisMarch.cpp"
@@ -19,7 +19,7 @@ int main()
         return 1;
     }
 
-    std::vector<Point> points;
+    vector<Point> points;
     while (!InputFile.eof())   // Read x,y from file until end
     {
         std::string xStr, yStr;
@@ -30,10 +30,10 @@ int main()
         Point p = {x, y};
         points.push_back(p);    // Add Point to points list
     }
-
-    if (std::vector<Point> grahamHull = GrahamScan(points); grahamHull.size() < 3)
+    if (vector<Point> grahamHull = GrahamScan(points); grahamHull.size() < 3)
     {
-        std::cerr << "ERROR: At least 3 points required to compute convex hull." << std::endl;
+        std::cerr << "ERROR: At least 3 points required to compute convex hull."
+            << std::endl;
         return 1;
     }
     else
