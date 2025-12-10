@@ -28,15 +28,12 @@ int main() {
 
   // Convex hull is not possible with fewer than 3 points.
   if (std::stack<Point> graham_hull = GrahamScanConvexHull(points);
-    graham_hull.size() < 3) {
+      graham_hull.size() < 3) {
     std::cerr << "ERROR: At least 3 points required to compute convex hull." <<
     std::endl;
     return 1;
-  }
-
-  // Remove and print each point on the convex hull to the console.
-  else {
-    std::cout << "Convex Hull Found:" << std::endl;
+  } else {
+    std::cout << "Convex Hull Found Using Graham Scan:" << std::endl;
     while (!graham_hull.empty()) {
       auto [x, y] = graham_hull.top();
       std::cout << "(" << x << ", " << y << ")" << std::endl;
@@ -44,7 +41,19 @@ int main() {
     }
   }
 
-  // std::vector<Point> jarvisHull;  // invoke jarvis march
+  if (std::vector<Point> jarvis_hull = JarvisMarchConvexHull(points);
+      jarvis_hull.size() < 3) {
+    std::cerr << "ERROR: At least 3 points required to compute convex hull." <<
+    std::endl;
+    return 1;
+  } else {
+    std::cout << "Convex Hull Found Using Jarvis March:" << std::endl;
+    while (!jarvis_hull.empty()) {
+      auto [x, y] = jarvis_hull.back();
+      std::cout << "(" << x << ", " << y << ")" << std::endl;
+      jarvis_hull.pop_back();
+    }
+  }
 
   input_file.close();
   if (input_file.is_open()) { // TODO replace std::cerr

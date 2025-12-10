@@ -39,10 +39,18 @@ std::vector<Point> JarvisMarchConvexHull(const std::vector<Point>& points) {
     vector<Point>::size_type next_idx = (current_idx + 1) % n;
 
     for (vector<Point>::size_type i = 0; i < n; i++) {
-
+      if (const int orient = GetOrientation(points[current_idx], points[i], points[next_idx]); orient == 2) {
+        next_idx = i;
+      } else if (orient == 0) {
+        const float dist1 = DistanceSquared(points[current_idx], points[i]);
+        const float dist2 = DistanceSquared(points[current_idx],
+                                            points[next_idx]);
+        if (dist1 > dist2) {
+          next_idx = i;
+        }
+      }
     }
-
-    ++current_idx;
+    current_idx = next_idx;
   } while (current_idx != start_idx);
 
   return hull;

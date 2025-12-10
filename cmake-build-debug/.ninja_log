@@ -19,3 +19,8 @@
 1572	1811	7870454742975208	ConvexHullAlgorithmComparison.exe	a11541e85ab30d3f
 12	875	7870455996025568	CMakeFiles/ConvexHullAlgorithmComparison.dir/graham_scan.cc.obj	653552b93287294e
 876	1125	7870456004658662	ConvexHullAlgorithmComparison.exe	a11541e85ab30d3f
+279	1438	7871114886220075	CMakeFiles/ConvexHullAlgorithmComparison.dir/helper_functions.cc.obj	f3977a1b625f5dd6
+260	1456	7871114886040073	CMakeFiles/ConvexHullAlgorithmComparison.dir/jarvis_march.cc.obj	66511e5e395c8399
+250	1480	7871114885930073	CMakeFiles/ConvexHullAlgorithmComparison.dir/graham_scan.cc.obj	653552b93287294e
+34	1999	7871114883769017	CMakeFiles/ConvexHullAlgorithmComparison.dir/main.cc.obj	e8371729ece3e448
+1999	2918	7871114903421713	ConvexHullAlgorithmComparison.exe	a11541e85ab30d3f

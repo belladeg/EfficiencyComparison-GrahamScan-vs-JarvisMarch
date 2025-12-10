@@ -76,7 +76,7 @@ vector<Point>::size_type FilterCollinearPoints(
 }*/
 
 
-std::stack<Point> GrahamScanConvexHull(vector<Point>& points) {
+std::stack<Point> GrahamScanConvexHull(vector<Point> points) {
   const vector<Point>::size_type n = points.size();
   if (n < 3) {
     // TODO replace empty_list by returning num
