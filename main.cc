@@ -1,0 +1,54 @@
+/*
+ *
+ */
+
+#include <fstream>
+#include <iostream>
+#include "point.h"
+
+using std::vector;
+
+int main() {
+  std::ifstream input_file;
+  input_file.open("Z:/CLionProjects/ConvexHullAlgorithmComparison/points.txt");
+  if (!input_file.is_open()) {  // TODO replace std::cerr
+    std::cerr << "ERROR: File not found." << std::endl;
+    return 1;
+  }
+
+  vector<Point> points;
+  while (!input_file.eof()) {
+    std::string x_str, y_str;
+    input_file >> x_str >> y_str;
+    const auto x = std::stof(x_str);
+    const auto y = std::stof(y_str);
+    Point p = {x, y};
+    points.push_back(p);
+  }
+
+  // Convex hull is not possible with fewer than 3 points.
+  if (std::stack<Point> graham_hull = GrahamScanConvexHull(points);
+    graham_hull.size() < 3) {
+    std::cerr << "ERROR: At least 3 points required to compute convex hull." <<
+    std::endl;
+    return 1;
+  }
+
+  // Remove and print each point on the convex hull to the console.
+  else {
+    std::cout << "Convex Hull Found:" << std::endl;
+    while (!graham_hull.empty()) {
+      auto [x, y] = graham_hull.top();
+      std::cout << "(" << x << ", " << y << ")" << std::endl;
+      graham_hull.pop();
+    }
+  }
+
+  // std::vector<Point> jarvisHull;  // invoke jarvis march
+
+  input_file.close();
+  if (input_file.is_open()) { // TODO replace std::cerr
+    std::cerr << "ERROR: File could not be closed." << std::endl;
+  }
+  return 0;
+}

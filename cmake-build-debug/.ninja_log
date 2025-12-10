@@ -1,0 +1,21 @@
+# ninja log v6
+35	793	7870351637555024	CMakeFiles/ConvexHullAlgorithmComparison.dir/helper_functions.cpp.obj	7b24508e59143fed
+26	798	7870351637450775	CMakeFiles/ConvexHullAlgorithmComparison.dir/jarvis_march.cpp.obj	bb6fe1aa89e0ecea
+15	980	7870351637350691	CMakeFiles/ConvexHullAlgorithmComparison.dir/graham_scan.cpp.obj	6d068996380eeea
+4	1676	7870351637244957	CMakeFiles/ConvexHullAlgorithmComparison.dir/main.cpp.obj	ecf634adbe7ccc2f
+1677	1959	7870351653968935	ConvexHullAlgorithmComparison.exe	eaccbce45acb044a
+42	1146	7870453491640172	CMakeFiles/ConvexHullAlgorithmComparison.dir/helper_functions.cc.obj	f3977a1b625f5dd6
+30	1159	7870453491520164	CMakeFiles/ConvexHullAlgorithmComparison.dir/jarvis_march.cc.obj	66511e5e395c8399
+19	1180	7870453491411561	CMakeFiles/ConvexHullAlgorithmComparison.dir/graham_scan.cc.obj	653552b93287294e
+6	1689	7870453491281592	CMakeFiles/ConvexHullAlgorithmComparison.dir/main.cc.obj	e8371729ece3e448
+44	839	7870453976002135	CMakeFiles/ConvexHullAlgorithmComparison.dir/helper_functions.cc.obj	f3977a1b625f5dd6
+35	861	7870453975906320	CMakeFiles/ConvexHullAlgorithmComparison.dir/jarvis_march.cc.obj	66511e5e395c8399
+26	1045	7870453975823045	CMakeFiles/ConvexHullAlgorithmComparison.dir/graham_scan.cc.obj	653552b93287294e
+15	1758	7870453975703473	CMakeFiles/ConvexHullAlgorithmComparison.dir/main.cc.obj	e8371729ece3e448
+45	741	7870454727712972	CMakeFiles/ConvexHullAlgorithmComparison.dir/helper_functions.cc.obj	f3977a1b625f5dd6
+34	748	7870454727599467	CMakeFiles/ConvexHullAlgorithmComparison.dir/jarvis_march.cc.obj	66511e5e395c8399
+24	979	7870454727495040	CMakeFiles/ConvexHullAlgorithmComparison.dir/graham_scan.cc.obj	653552b93287294e
+12	1565	7870454727382399	CMakeFiles/ConvexHullAlgorithmComparison.dir/main.cc.obj	e8371729ece3e448
+1572	1811	7870454742975208	ConvexHullAlgorithmComparison.exe	a11541e85ab30d3f
+12	875	7870455996025568	CMakeFiles/ConvexHullAlgorithmComparison.dir/graham_scan.cc.obj	653552b93287294e
+876	1125	7870456004658662	ConvexHullAlgorithmComparison.exe	a11541e85ab30d3f
