@@ -2,56 +2,33 @@
 // Created by Isabella on 12/06/2025.
 //
 
-#include <filesystem>
-#include <vector>
-#include <stack>
-#include "Point.h"
+//#include <filesystem>
+#include "point.h"
 
 
 Point BottomPoint(vector<Point>& points)
 {
-    Point bottomPoint = points[0];
+    Point p = points[0];
     int minIndex = 0;
 
     for (int i = 1; i < points.size(); i++)
     {
-        if (points[i].y < bottomPoint.y)
+        if (points[i].y < p.y)
         {
-            bottomPoint = points[i];
+            p = points[i];
             minIndex = i;
         }
-        else if (points[i].y == bottomPoint.y)
+        else if (points[i].y == p.y)
         {
-            if (points[i].x < bottomPoint.x)
+            if (points[i].x < p.x)
             {
-                bottomPoint = points[i];
+                p = points[i];
                 minIndex = i;
             }
         }
     }
     std::swap(points[0], points[minIndex]);
-    return bottomPoint;
-}
-
-
-int Orientation(const Point a, const Point b, const Point c)
-{
-    if (const float orient = (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.
-        x); orient == 0) // collinear
-        return 0;
-    else
-    {
-        if (orient > 0)    // counter-clockwise
-            return 2;
-        // clockwise
-        return 1;
-    }
-}
-
-
-float Distance(const Point a, const Point b)
-{
-    return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+    return p;
 }
 
 
@@ -114,24 +91,24 @@ vector<Point>::size_type FilterCollinearPoints(vector<Point>& points,
             points[m] = points[i];
         }
         else
-            points[newSize] = points[i];
+            points[n] = points[i];
     }
-    return newSize + 1;
+    return n + 1;
 }
 
 
-vector<Point> GrahamScan(vector<Point>& points)
+std::stack<Point> GrahamScan(vector<Point>& points)
 {
     vector<Point>::size_type n = points.size();
 
     if (n < 3)
     {
-        vector<Point> emptyList;
+        std::stack<Point> emptyList;
         return emptyList;
     }
     // sort points by increasing polar angle relative to bottom point
     BottomPoint(points);
-    QuickSort(points, 1, size - 1);
+    QuickSort(points, 1, n - 1);
 
     /*const vector<Point>::size_type listSize = FilterCollinearPoints(points, size);
     if (listSize < 3)
@@ -149,7 +126,7 @@ vector<Point> GrahamScan(vector<Point>& points)
         {
             Point top = hull.top(); hull.pop();
             Point nextToTop = hull.top();
-            if (orientation(nextToTop, top, points[i]) != 2)
+            if (Orientation(nextToTop, top, points[i]) != 2)
                 continue;
             hull.push(top);
             break;

@@ -56,16 +56,23 @@ build CMakeFiles/ConvexHullAlgorithmComparison.dir/main.cpp.obj: CXX_COMPILER__C
   OBJECT_DIR = CMakeFiles\ConvexHullAlgorithmComparison.dir
   OBJECT_FILE_DIR = CMakeFiles\ConvexHullAlgorithmComparison.dir
 
-build CMakeFiles/ConvexHullAlgorithmComparison.dir/GrahamScan.cpp.obj: CXX_COMPILER__ConvexHullAlgorithmComparison_unscanned_Debug Z$:/CLionProjects/ConvexHullAlgorithmComparison/GrahamScan.cpp || cmake_object_order_depends_target_ConvexHullAlgorithmComparison
+build CMakeFiles/ConvexHullAlgorithmComparison.dir/graham_scan.cpp.obj: CXX_COMPILER__ConvexHullAlgorithmComparison_unscanned_Debug Z$:/CLionProjects/ConvexHullAlgorithmComparison/graham_scan.cpp || cmake_object_order_depends_target_ConvexHullAlgorithmComparison
   CONFIG = Debug
-  DEP_FILE = CMakeFiles\ConvexHullAlgorithmComparison.dir\GrahamScan.cpp.obj.d
+  DEP_FILE = CMakeFiles\ConvexHullAlgorithmComparison.dir\graham_scan.cpp.obj.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\ConvexHullAlgorithmComparison.dir
   OBJECT_FILE_DIR = CMakeFiles\ConvexHullAlgorithmComparison.dir
 
-build CMakeFiles/ConvexHullAlgorithmComparison.dir/JarvisMarch.cpp.obj: CXX_COMPILER__ConvexHullAlgorithmComparison_unscanned_Debug Z$:/CLionProjects/ConvexHullAlgorithmComparison/JarvisMarch.cpp || cmake_object_order_depends_target_ConvexHullAlgorithmComparison
+build CMakeFiles/ConvexHullAlgorithmComparison.dir/jarvis_march.cpp.obj: CXX_COMPILER__ConvexHullAlgorithmComparison_unscanned_Debug Z$:/CLionProjects/ConvexHullAlgorithmComparison/jarvis_march.cpp || cmake_object_order_depends_target_ConvexHullAlgorithmComparison
   CONFIG = Debug
-  DEP_FILE = CMakeFiles\ConvexHullAlgorithmComparison.dir\JarvisMarch.cpp.obj.d
+  DEP_FILE = CMakeFiles\ConvexHullAlgorithmComparison.dir\jarvis_march.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ConvexHullAlgorithmComparison.dir
+  OBJECT_FILE_DIR = CMakeFiles\ConvexHullAlgorithmComparison.dir
+
+build CMakeFiles/ConvexHullAlgorithmComparison.dir/helper_functions.cpp.obj: CXX_COMPILER__ConvexHullAlgorithmComparison_unscanned_Debug Z$:/CLionProjects/ConvexHullAlgorithmComparison/helper_functions.cpp || cmake_object_order_depends_target_ConvexHullAlgorithmComparison
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\ConvexHullAlgorithmComparison.dir\helper_functions.cpp.obj.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\ConvexHullAlgorithmComparison.dir
   OBJECT_FILE_DIR = CMakeFiles\ConvexHullAlgorithmComparison.dir
@@ -78,7 +85,7 @@ build CMakeFiles/ConvexHullAlgorithmComparison.dir/JarvisMarch.cpp.obj: CXX_COMP
 #############################################
 # Link the executable ConvexHullAlgorithmComparison.exe
 
-build ConvexHullAlgorithmComparison.exe: CXX_EXECUTABLE_LINKER__ConvexHullAlgorithmComparison_Debug CMakeFiles/ConvexHullAlgorithmComparison.dir/main.cpp.obj CMakeFiles/ConvexHullAlgorithmComparison.dir/GrahamScan.cpp.obj CMakeFiles/ConvexHullAlgorithmComparison.dir/JarvisMarch.cpp.obj
+build ConvexHullAlgorithmComparison.exe: CXX_EXECUTABLE_LINKER__ConvexHullAlgorithmComparison_Debug CMakeFiles/ConvexHullAlgorithmComparison.dir/main.cpp.obj CMakeFiles/ConvexHullAlgorithmComparison.dir/graham_scan.cpp.obj CMakeFiles/ConvexHullAlgorithmComparison.dir/jarvis_march.cpp.obj CMakeFiles/ConvexHullAlgorithmComparison.dir/helper_functions.cpp.obj
   CONFIG = Debug
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
