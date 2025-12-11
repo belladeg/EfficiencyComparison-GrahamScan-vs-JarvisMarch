@@ -13,6 +13,27 @@ struct Point {
 };
 
 
+// Helper functions for both algorithms.
+//
+// Computes the orientation of three points. Returns 0 if collinear, 1 if
+// clockwise, or 2 if counter-clockwise
+inline int GetOrientation(const Point a, const Point b, const Point c) {
+  if (const float orient = (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x)
+    ; orient == 0) {
+    return 0;
+    } else {
+      if (orient > 0) // counter-clockwise
+        return 2;
+      // clockwise
+      return 1;
+    }
+}
+
+// Returns the distance squared between two points.
+inline float DistanceSquared(const Point a, const Point b) {
+  return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+}
+
 // Graham Scan functions.
 //
 // Finds the bottom-most point in the list and swaps it with the first point.
@@ -32,34 +53,13 @@ void QuickSort(std::vector<Point>&, std::vector<Point>::size_type,
 // points on the final convex hull.
 std::stack<Point> GrahamScanConvexHull(std::vector<Point>);
 
-
 // Jarvis March functions.
 //
 // Returns the index of the left-most point in the list.
-std::vector<Point>::size_type FindLeftmostPoint(std::vector<Point>&);
+std::vector<Point>::size_type FindLeftmostPoint(const std::vector<Point>&);
 // Performs Jarvis March algorithm on the list of points, returning the list of
 // points on the final convex hull.
-std::vector<Point> JarvisMarchConvexHull(std::vector<Point>&);
+std::vector<Point> JarvisMarchConvexHull(const std::vector<Point>&);
 
-// Helper functions for both algorithms.
-//
-// Computes the orientation of three points. Returns 0 if collinear, 1 if
-// clockwise, or 2 if counter-clockwise
-inline int GetOrientation(const Point a, const Point b, const Point c) {
-  if (const float orient = (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
-      orient == 0) {
-    return 0;
-      } else {
-        if (orient > 0)  // counter-clockwise
-          return 2;
-        // clockwise
-        return 1;
-      }
-}
-
-// Returns the distance squared between two points.
-inline float DistanceSquared(const Point a, const Point b) {
-  return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
-}
 
 #endif //POINT_H
