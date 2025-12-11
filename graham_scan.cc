@@ -8,7 +8,6 @@
 using std::vector;
 
 void SwapBottomPoint(vector<Point>& points) {
-
   vector<Point>::size_type min_index = 0;
 
   for (vector<Point>::size_type i = 1; i < points.size(); ++i) {
@@ -32,8 +31,9 @@ vector<Point>::size_type Partition(vector<Point>& points,
 
   for (vector<Point>::size_type i = low; i < high; ++i) {
     if (const int orient = GetOrientation(points[0], points[i], pivot);
-        orient == 0) {
-      if (DistanceSquared(points[0], points[i]) < DistanceSquared(points[0],       pivot)) {
+      orient == 0) {
+      if (DistanceSquared(points[0], points[i]) < DistanceSquared(
+            points[0], pivot)) {
         ++last_index;
         std::swap(points[last_index], points[i]);
       }
@@ -56,71 +56,36 @@ void QuickSort(vector<Point>& points, const vector<Point>::size_type low,
   }
 }
 
-/* FIXME
-vector<Point>::size_type FilterCollinearPoints(
-    vector<Point>& points,
-    const vector<Point>::size_type n) {
-  auto m = 1;  // Modified list size
-  for (auto i = 1; i < n; ++i) {
-    if (const int orient = GetOrientation(points[0], points[m], points[i]);
-        orient != 0) {
-      ++m;
-      points[m] = points[i];
-    } else {
-      points[n] = points[i];
-    }
-  }
-  return (n + 1);
-}*/
 
-
-std::stack<Point> GrahamScanConvexHull(vector<Point> points) {
+std::vector<Point> GrahamScanConvexHull(vector<Point> points) {
   const vector<Point>::size_type n = points.size();
-  if (n < 3) {
-    // TODO replace empty_list by returning num
-    std::stack<Point> empty_stack;
-    return empty_stack;
-  }
-  // Sort points by increasing polar angle relative to bottom point
+  if (n < 3) // Convex hull is not possible.
+    return {};
+
   SwapBottomPoint(points);
+  // Sort points by increasing polar angle relative to the bottom point.
   QuickSort(points, 1, n - 1);
 
-  /*const vector<Point>::size_type listSize = FilterCollinearPoints(points, size);
-  if (listSize < 3)
-  {
-      vector<Point> emptyList;
-      return emptyList;
-  }*/
-  std::stack<Point> hull;
-  hull.push(points[0]);
-  hull.push(points[1]);
-  hull.push(points[2]);
-  for (vector<Point>::size_type i = 3; i < n; i++) {
-    while (hull.size() >= 2) {
-      Point top = hull.top();
-      hull.pop();
-      if (const Point next_to_top = hull.top(); GetOrientation(next_to_top, top,
-                                                               points[i]) != 2)
+  std::vector<Point> hull_stack;
+  hull_stack.push_back(points[0]);
+  hull_stack.push_back(points[1]);
+  hull_stack.push_back(points[2]);
+  for (vector<Point>::size_type i = 3; i < n; ++i) {
+    while (hull_stack.size() >= 2) {
+      Point top = hull_stack.back();
+      hull_stack.pop_back();
+
+      if (const Point next_to_top = hull_stack.back(); GetOrientation(
+                                                         next_to_top, top,
+                                                         points[i]) != 2)
         continue;
-      hull.push(top);
+
+      hull_stack.push_back(top);
       break;
     }
-    hull.push(points[i]);
-  }
-  /*
-{
 
-  //const int orient = Orientation();
-  while (hullPoints.size() > 1 && orient = Orientation(
-      points[size - 2], points[size - 1],
-      points[i]) != 2) // not counter-clockwise
-  {
-      hullPoints.pop_back();
-      size = points.size();
-      orient = Orientation(points[size - 2], points.back(),
-                            points[i]);
+    hull_stack.push_back(points[i]);
   }
-  hullPoints.push_back(points[i]);
-}*/
-  return hull;
+
+  return hull_stack;
 }

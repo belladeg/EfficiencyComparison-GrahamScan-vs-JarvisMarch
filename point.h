@@ -4,6 +4,7 @@
 
 #ifndef POINT_H
 #define POINT_H
+#include <iostream>
 #include <stack>
 #include <vector>
 
@@ -18,15 +19,15 @@ struct Point {
 // Computes the orientation of three points. Returns 0 if collinear, 1 if
 // clockwise, or 2 if counter-clockwise
 inline int GetOrientation(const Point a, const Point b, const Point c) {
-  if (const float orient = (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x)
-    ; orient == 0) {
+  if (const float result = (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
+      result == 0) {
     return 0;
-    } else {
-      if (orient > 0) // counter-clockwise
-        return 2;
-      // clockwise
-      return 1;
-    }
+  } else {
+    if (result > 0)
+      return 2;
+
+    return 1;
+  }
 }
 
 // Returns the distance squared between two points.
@@ -34,11 +35,20 @@ inline float DistanceSquared(const Point a, const Point b) {
   return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
 }
 
+inline void PrintConvexHull(std::vector<Point>& hull_pts, const std::string& algorithm) {
+  std::cout << "Convex Hull Found Using " << algorithm << ":" << std::endl;
+  while (!hull_pts.empty()) {
+    auto [x, y] = hull_pts.back();
+    std::cout << "(" << x << ", " << y << ")" << std::endl;
+    hull_pts.pop_back();
+  }
+}
+
 // Graham Scan functions.
 //
 // Finds the bottom-most point in the list and swaps it with the first point.
 void SwapBottomPoint(std::vector<Point>&);
-// TODO add comment documentation
+// FIXME add comment documentation
 std::vector<Point>::size_type Partition(std::vector<Point>&,
                                         std::vector<Point>::size_type,
                                         std::vector<Point>::size_type);
@@ -51,7 +61,7 @@ void QuickSort(std::vector<Point>&, std::vector<Point>::size_type,
                                                       Point>::size_type);*/
 // Performs Graham Scan algorithm on the list of points, returning the list of
 // points on the final convex hull.
-std::stack<Point> GrahamScanConvexHull(std::vector<Point>);
+std::vector<Point> GrahamScanConvexHull(std::vector<Point>);
 
 // Jarvis March functions.
 //
