@@ -20,10 +20,15 @@ int main() {
   while (!input_file.eof()) {
     std::string x_str, y_str;
     input_file >> x_str >> y_str;
-    const auto x = std::stof(x_str);
-    const auto y = std::stof(y_str);
-    Point p = {x, y};
-    points.push_back(p);
+    try {
+      const auto x = std::stof(x_str);
+      const auto y = std::stof(y_str);
+      Point p = {x, y};
+      points.push_back(p);
+    } catch (const std::invalid_argument&) {
+      //std::cerr << "ERROR: " << ia.what() << std::endl;
+      //continue;
+    }
   }
 
   // Convex hull is not possible with fewer than 3 points.

@@ -36,7 +36,7 @@ std::stack<Point> GrahamScanConvexHull(std::vector<Point>);
 // Jarvis March functions.
 //
 // Returns the index of the left-most point in the list.
-std::vector<Point>::size_type FindLeftmostPoint(const std::vector<Point>&);
+std::vector<Point>::size_type FindLeftmostPoint(std::vector<Point>&);
 // Performs Jarvis March algorithm on the list of points, returning the list of
 // points on the final convex hull.
 std::vector<Point> JarvisMarchConvexHull(std::vector<Point>&);

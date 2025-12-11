@@ -33,9 +33,7 @@ vector<Point>::size_type Partition(vector<Point>& points,
   for (vector<Point>::size_type i = low; i < high; ++i) {
     if (const int orient = GetOrientation(points[0], points[i], pivot);
         orient == 0) {
-      const float dist1 = DistanceSquared(points[0], points[i]);
-      const float dist2 = DistanceSquared(points[0], pivot);
-      if (dist1 < dist2) {
+      if (DistanceSquared(points[0], points[i]) < DistanceSquared(points[0],       pivot)) {
         ++last_index;
         std::swap(points[last_index], points[i]);
       }
