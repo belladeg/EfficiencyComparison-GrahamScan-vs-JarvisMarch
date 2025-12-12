@@ -13,6 +13,32 @@ struct Point {
   float y = 0.0;
 };
 
+class Counters {
+public:
+    static void IncrementCounter(const std::string& counter) {
+        if (counter == "orientation") {
+            ++orientation_counter;
+        } else if (counter == "distance") {
+            ++distance_counter;
+        }
+    }
+
+    static void PrintCounters(const std::string& algorithm) {
+        std::cout << algorithm << " orientation_counter: " <<
+        orientation_counter << std::endl;
+        std::cout << algorithm << " distance_counter: " << distance_counter <<
+        std::endl;
+    }
+
+    static void ResetCounters() {
+        orientation_counter = 0;
+        distance_counter = 0;
+    }
+
+private:
+    inline static int orientation_counter = 0;
+    inline static int distance_counter = 0;
+};
 
 // Helper functions for both algorithms.
 //
