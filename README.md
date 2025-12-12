@@ -9,6 +9,29 @@ of both approaches by
 measuring execution time and counting basic operations across various dataset
 sizes.
 
+## Project Architecture
+
+### File Structure
+
+* **main.cc**: Entry point. Handles user input, menu selection, and
+  coordinates algorithm execution.
+* **point.h**: Defines the 'Point' struct, Counters class (for efficiency
+  comparison), and helper
+  functions
+  used by both
+  algorithms.
+* **graham_scan.cc**: Implementation of the Graham Scan algorithm (sorting
+  based on polar angle).
+* **jarvis_march.cc**: Implementation of the Jarvis March (Gift Wrapping)
+  algorithm.
+* **points.txt**: Source file for dataset input.
+
+### System Tested On
+
+* **OS:** Windows 11
+* **Compiler:** MinGW w/ GCC 11.0 (x64)
+* **IDE:** CLion 2025.2.4
+
 ## Installation & Execution
 
 ### Prerequisites
@@ -46,41 +69,13 @@ sizes.
    cmake --build .
    ~~~
 
-6. **Navigate to the executable**
+6. **Run the executable**
+   *On Windows (MinGW/Git Bash):*
     ~~~bash
-   cd ..
-   cd cmake-build-debug/
-    ~~~
-
-7. **Run .exe**
-    ~~~bash
-    ./ConvexHullAlgorithmComparison.exe
-    ~~~
-
-#### If input file (points.txt, src dir) is edited:
-
-1. **Navigate to the build directory**
-    ~~~bash
-   cd ..
-   cd build
-   ~~~
-
-2. **Clean previous build**
-    ~~~bash
-   cmake --build . --target clean
-   ~~~
-
-3. **Rebuild**
-    ~~~bash
-   cmake --build .
-   ~~~
-
-4. **Navigate to the executable and rerun**
-    ~~~bash
-   cd ..
-    cd cmake-build-debug/
    ./ConvexHullAlgorithmComparison.exe
-   ~~~
+    ~~~
+
+*(If using Visual Studio, run: 'Debug/ConvexHullAlgorithmComparison.exe')*
 
 ## Usage
 
@@ -100,3 +95,42 @@ Select this option to test the algorithms' performance on large datasets.
 ### 2. File Input
 
 Select this option to test specific datasets or edge cases.
+
+* A sample file named 'points.txt' is automatically copied to the build
+  directory.
+* **Tip:** You can edit 'points.txt' in the source folder, then rebuild/run
+  to update the data.
+
+**Input File Format:**
+The program reads coordinates as a continuous sequence of integers separated by
+whitespace (spaces or newlines).
+
+**Example Input:**
+
+~~~text
+10 5
+2 8 15 22
+4 1 7 9 3
+1
+~~~
+
+### Output
+
+The program will output the following for **both** algorithms:
+
+1. **Convex Hull Points:** The specific coordinates that form the boundary.
+2. **Execution Time:** Measured in microseconds.
+3. **Basic Operations Count:** The total number of geometric comparisons or
+   orientation checks performed.
+
+## Troubleshooting
+
+If the input file ('points.txt') is not updating or the build seems cached:
+
+1. **Force a rebuild**
+    ~~~bash
+   cmake --build . --target clean
+   cmake --build .
+   ~~~
+2. **Verify file location**
+   Ensure 'points.txt' is located in the same directory as the executable.
