@@ -1,15 +1,13 @@
 # Efficiency Comparison - Graham Scan vs. Jarvis March
 
-This project implements two algorithms to solve the convex hull
+This project implements and compares two fundamental algorithms for solving the
+Convex Hull
 problem: the
-Graham Scan, using QuickSort, and
-the Jarvis March. Input is gathered as a list of ordered pairs that is either
-read
-from a
-file or randomly generated up to a specified limit. The efficiency of each
-algorithm is
-observed by metrics for execution time and counting basic operations, which
-are included in output.
+**Graham Scan** (using QuickSort) and
+the **Jarvis March**. The primary goal is to analyze the algorithmic efficiency
+of both approaches by
+measuring execution time and counting basic operations across various dataset
+sizes.
 
 ## Installation & Execution
 
@@ -45,12 +43,35 @@ are included in output.
 
 5. **Compile**
     ~~~bash
-   cmake --build
+   cmake --build .
    ~~~
 
-6. **Run the executable**
+6. **Navigate to the executable**
+    ~~~bash
+   cd ..
+   cd cmake-build-debug/
+    ~~~
+
+7. **Run .exe**
     ~~~bash
     ./ConvexHullAlgorithmComparison.exe
     ~~~
 
 ## Usage
+
+Upon launch, the program will prompt you to select an input method for the
+dataset. Both the Graham Scan and Jarvis March algorithms will process the
+**same** set of points to ensure a fair efficiency comparison.
+
+### 1. Random Generation
+
+Select this option to test the algorithms' performance on large datasets.
+
+* You will be prompted to enter the **number of points** to generate.
+* The program will randomly generate coordinates (x, y) up to the specified
+  limit.
+* This is best for observing how execution time scales as $N$ increases.
+
+### 2. File Input
+
+Select this option to test specific datasets or edge cases.

@@ -3,6 +3,7 @@
  */
 
 #include <chrono>
+#include <filesystem>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -13,6 +14,9 @@
 using std::vector;
 
 int main() {
+    std::cout << "DEBUG: I am running in this folder: " <<
+    std::filesystem::current_path() << std::endl;
+
     std::cout << "Use random point generator? (Y/N): ";
     char input;
     std::cin >> input;
@@ -27,8 +31,7 @@ int main() {
         int num_points;
         do {
             std::cout <<
-            "Enter # of random points to generate (min 3, max 1000): " <<
-            std::endl;
+            "Enter # of random points to generate (min 3, max 1000): ";
             if (std::cin >> num_points; !std::cin.good()) {
                 std::cerr << "ERROR: Invalid input." << std::endl;
             } else if (num_points < 3 || num_points > 1000) {
@@ -93,7 +96,7 @@ int main() {
 
     Counters::PrintCounters("JM");
 
-    file.clear();
+    //file.clear();
     file.close();
     if (file.is_open()) {
         std::cerr << "ERROR: File could not be closed." << std::endl;
