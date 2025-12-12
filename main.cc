@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <iostream>
 #include <random>
+#include <string>
 
 #include "point.h"
 
@@ -49,7 +50,7 @@ int main() {
         }
     }
     std::ifstream file;
-    file.open("Z:/CLionProjects/ConvexHullAlgorithmComparison/points.txt");
+    file.open("points.txt");
     if (!file.is_open()) {
         std::cerr << "ERROR: File not found." << std::endl;
         return 1;

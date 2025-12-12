@@ -57,6 +57,31 @@ sizes.
     ./ConvexHullAlgorithmComparison.exe
     ~~~
 
+#### If input file (points.txt, src dir) is edited:
+
+1. **Navigate to the build directory**
+    ~~~bash
+   cd ..
+   cd build
+   ~~~
+
+2. **Clean previous build**
+    ~~~bash
+   cmake --build . --target clean
+   ~~~
+
+3. **Rebuild**
+    ~~~bash
+   cmake --build .
+   ~~~
+
+4. **Navigate to the executable and rerun**
+    ~~~bash
+   cd ..
+    cd cmake-build-debug/
+   ./ConvexHullAlgorithmComparison.exe
+   ~~~
+
 ## Usage
 
 Upon launch, the program will prompt you to select an input method for the
