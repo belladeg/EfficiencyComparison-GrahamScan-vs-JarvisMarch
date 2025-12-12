@@ -45,15 +45,14 @@ private:
 // Computes the orientation of three points. Returns 0 if collinear, 1 if
 // clockwise, or 2 if counter-clockwise
 inline int GetOrientation(const Point a, const Point b, const Point c) {
-  if (const float result = (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
-      result == 0) {
-    return 0;
-  } else {
-    if (result > 0)
-      return 2;
-
-    return 1;
-  }
+    if (const float result = (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (
+                                 c.x - a.x); result == 0) {
+        return 0;
+    } else {
+        if (result > 0)
+            return 2;
+        return 1;
+    }
 }
 
 // Returns the distance squared between two points.
