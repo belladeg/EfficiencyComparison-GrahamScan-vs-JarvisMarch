@@ -80,6 +80,7 @@ int main() {
 
     Counters::PrintCounters("GS");
     Counters::ResetCounters();
+    std::cout << std::endl;
 
     start = std::chrono::steady_clock::now();
     auto jarvis_hull = JarvisMarchConvexHull(points);
