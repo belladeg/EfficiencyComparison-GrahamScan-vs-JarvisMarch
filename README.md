@@ -26,18 +26,31 @@ are included in output.
     ~~~bash
    git clone https://github.com/belladeg/EfficiencyComparison-GrahamScan-vs-JarvisMarch.git
     ~~~
-2. **Create a build directory**
+
+2. **Navigate to the project directory**
+    ~~~bash
+   cd EfficiencyComparison-GrahamScan-vs-JarvisMarch
+   ~~~
+
+3. **Create a build directory**
     ~~~bash
    mkdir build
    cd build
    ~~~
-3. **Compile**
+
+4. **Generate build files**
     ~~~bash
-   cmake ..
-   make
+    cmake ..
    ~~~
-4. **Run the executable**
+
+5. **Compile**
     ~~~bash
-   ./ConvexHullAlgorithmComparison.exe
+   cmake --build
+   ~~~
+
+6. **Run the executable**
+    ~~~bash
+    ./ConvexHullAlgorithmComparison.exe
+    ~~~
 
 ## Usage
