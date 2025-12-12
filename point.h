@@ -5,12 +5,11 @@
 #ifndef POINT_H
 #define POINT_H
 #include <iostream>
-#include <stack>
 #include <vector>
 
 struct Point {
-  float x = 0.0;
-  float y = 0.0;
+    float x = 0.0;
+    float y = 0.0;
 };
 
 class Counters {
@@ -74,7 +73,7 @@ inline void PrintConvexHull(std::vector<Point>& hull_pts,
 //
 // Finds the bottom-most point in the list and swaps it with the first point.
 void SwapBottomPoint(std::vector<Point>&);
-// FIXME add comment documentation
+//
 std::vector<Point>::size_type Partition(std::vector<Point>&,
                                         std::vector<Point>::size_type,
                                         std::vector<Point>::size_type);
@@ -82,9 +81,9 @@ std::vector<Point>::size_type Partition(std::vector<Point>&,
 void QuickSort(std::vector<Point>&, std::vector<Point>::size_type,
                std::vector<Point>::size_type);
 // Returns the number of points on the convex hull.
-/* FIXME std::vector<Point>::size_type FilterCollinearPoints(std::vector<Point>&,
-                                                    std::vector<
-                                                      Point>::size_type);*/
+std::vector<Point>::size_type FilterCollinearPoints(
+    std::vector<Point>&, // FIXME
+    std::vector<Point>::size_type);
 // Performs Graham Scan algorithm on the list of points, returning the list of
 // points on the final convex hull.
 std::vector<Point> GrahamScanConvexHull(std::vector<Point>);
