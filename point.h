@@ -57,7 +57,7 @@ inline int GetOrientation(const Point a, const Point b, const Point c) {
 
 // Returns the distance squared between two points.
 inline float DistanceSquared(const Point a, const Point b) {
-  return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+    return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
 }
 
 inline void PrintConvexHull(std::vector<Point>& hull_pts, const std::string& algorithm) {
