@@ -32,6 +32,7 @@ vector<Point>::size_type Partition(vector<Point>& points,
         Counters::IncrementCounter("orientation");
         if (const int orient = GetOrientation(points[0], points[i], pivot);
             orient == 0) {
+            // collinear, sort by distance
             Counters::IncrementCounter("distance");
             Counters::IncrementCounter("distance");
             if (DistanceSquared(points[0], points[i]) < DistanceSquared(
@@ -40,6 +41,7 @@ vector<Point>::size_type Partition(vector<Point>& points,
                 std::swap(points[last_index], points[i]);
             }
         } else if (orient == 2) {
+            // counterclockwise
             ++last_index;
             std::swap(points[last_index], points[i]);
         }

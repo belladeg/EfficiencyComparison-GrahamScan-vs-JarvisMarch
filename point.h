@@ -4,6 +4,7 @@
 
 #ifndef POINT_H
 #define POINT_H
+
 #include <iostream>
 #include <vector>
 
@@ -14,6 +15,7 @@ struct Point {
 
 class Counters {
 public:
+    // Increments function counter, depending on string input.
     static void IncrementCounter(const std::string& counter) {
         if (counter == "orientation") {
             ++orientation_counter;
@@ -35,12 +37,12 @@ public:
     }
 
 private:
-    inline static int orientation_counter = 0;
-    inline static int distance_counter = 0;
+    inline static auto orientation_counter = 0;
+    inline static auto distance_counter = 0;
 };
 
 // Helper functions for both algorithms.
-//
+
 // Computes the orientation of three points. Returns 0 if collinear, 1 if
 // clockwise, or 2 if counter-clockwise
 inline int GetOrientation(const Point a, const Point b, const Point c) {
@@ -59,6 +61,7 @@ inline float DistanceSquared(const Point a, const Point b) {
     return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
 }
 
+// Prints each point in the list/stack.
 inline void PrintConvexHull(std::vector<Point>& hull_pts,
                             const std::string& algorithm) {
     std::cout << "Convex Hull Found Using " << algorithm << ":" << std::endl;
@@ -70,31 +73,28 @@ inline void PrintConvexHull(std::vector<Point>& hull_pts,
 }
 
 // Graham Scan functions.
-//
+
 // Finds the bottom-most point in the list and swaps it with the first point.
 void SwapBottomPoint(std::vector<Point>&);
-//
+// Rearranges elements around the pivot point. Used in QuickSort
+// algorithm.
+// Returns the index of the pivot point.
 std::vector<Point>::size_type Partition(std::vector<Point>&,
                                         std::vector<Point>::size_type,
                                         std::vector<Point>::size_type);
 // Performs QuickSort algorithm on the list of points.
 void QuickSort(std::vector<Point>&, std::vector<Point>::size_type,
                std::vector<Point>::size_type);
-// Returns the number of points on the convex hull.
-std::vector<Point>::size_type FilterCollinearPoints(
-    std::vector<Point>&, // FIXME
-    std::vector<Point>::size_type);
-// Performs Graham Scan algorithm on the list of points, returning the list of
-// points on the final convex hull.
+// Performs Graham Scan algorithm on the list of points.
+// Returns the list of points on the final convex hull.
 std::vector<Point> GrahamScanConvexHull(std::vector<Point>);
 
 // Jarvis March functions.
-//
+
 // Returns the index of the left-most point in the list.
 std::vector<Point>::size_type FindLeftmostPoint(const std::vector<Point>&);
 // Performs Jarvis March algorithm on the list of points, returning the list of
 // points on the final convex hull.
 std::vector<Point> JarvisMarchConvexHull(const std::vector<Point>&);
-
 
 #endif //POINT_H

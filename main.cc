@@ -3,8 +3,8 @@
  */
 
 #include <chrono>
-#include <iomanip>
 #include <fstream>
+#include <iomanip>
 #include <iostream>
 #include <random>
 
@@ -40,7 +40,7 @@ int main() {
         std::random_device rd;
         std::mt19937 gen(rd());
         std::uniform_real_distribution<float> dist(-100.0, 100.0);
-        for (int i = 0; i < num_points; ++i) {
+        for (auto i = 0; i < num_points; ++i) {
             write_file << std::fixed << std::setprecision(2) << dist(gen) << " "
             << dist(gen) << std::endl;
         }
