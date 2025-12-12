@@ -60,13 +60,14 @@ inline float DistanceSquared(const Point a, const Point b) {
     return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
 }
 
-inline void PrintConvexHull(std::vector<Point>& hull_pts, const std::string& algorithm) {
-  std::cout << "Convex Hull Found Using " << algorithm << ":" << std::endl;
-  while (!hull_pts.empty()) {
-    auto [x, y] = hull_pts.back();
-    std::cout << "(" << x << ", " << y << ")" << std::endl;
-    hull_pts.pop_back();
-  }
+inline void PrintConvexHull(std::vector<Point>& hull_pts,
+                            const std::string& algorithm) {
+    std::cout << "Convex Hull Found Using " << algorithm << ":" << std::endl;
+    while (!hull_pts.empty()) {
+        auto [x, y] = hull_pts.back();
+        std::cout << "(" << x << ", " << y << ")" << std::endl;
+        hull_pts.pop_back();
+    }
 }
 
 // Graham Scan functions.
