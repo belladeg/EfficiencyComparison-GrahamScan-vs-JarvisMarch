@@ -4,11 +4,9 @@
 26	798	7870351637450775	CMakeFiles/ConvexHullAlgorithmComparison.dir/jarvis_march.cpp.obj	bb6fe1aa89e0ecea
 15	980	7870351637350691	CMakeFiles/ConvexHullAlgorithmComparison.dir/graham_scan.cpp.obj	6d068996380eeea
 4	1676	7870351637244957	CMakeFiles/ConvexHullAlgorithmComparison.dir/main.cpp.obj	ecf634adbe7ccc2f
-1032	1170	7872815645541666	ConvexHullAlgorithmComparison.exe	915f4b563cbf8727
-2	342	7872841822499118	build.ninja	4f37b8b95f9ad666
+1048	1192	7872902413065092	ConvexHullAlgorithmComparison.exe	915f4b563cbf8727
+7	1213	7872953316740447	build.ninja	4f37b8b95f9ad666
 26	1268	7872754054332638	CMakeFiles/ConvexHullAlgorithmComparison.dir/graham_scan.cc.obj	dfc5f10d71f1247f
 36	1265	7872754054426549	CMakeFiles/ConvexHullAlgorithmComparison.dir/jarvis_march.cc.obj	b1fa9a39cbea60f5
-5	1032	7872815635269153	CMakeFiles/ConvexHullAlgorithmComparison.dir/main.cc.obj	1599006710fb0caa
-2	342	7872841822487860	Z:/CLionProjects/ConvexHullAlgorithmComparison/cmake-build-debug/cmake_install.cmake	4f37b8b95f9ad666
-1	346	7872841822499118	build.ninja	4f37b8b95f9ad666
-1	346	7872841822499118	Z:/CLionProjects/ConvexHullAlgorithmComparison/cmake-build-debug/cmake_install.cmake	4f37b8b95f9ad666
+5	1047	7872902402634085	CMakeFiles/ConvexHullAlgorithmComparison.dir/main.cc.obj	1599006710fb0caa
+7	1213	7872953316696162	Z:/CLionProjects/ConvexHullAlgorithmComparison/cmake-build-debug/cmake_install.cmake	4f37b8b95f9ad666

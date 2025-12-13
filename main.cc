@@ -15,9 +15,6 @@
 using std::vector;
 
 int main() {
-    std::cout << "DEBUG: I am running in this folder: " <<
-    std::filesystem::current_path() << std::endl;
-
     std::cout << "Use random point generator? (Y/N): ";
     char input;
     std::cin >> input;
@@ -32,10 +29,10 @@ int main() {
         int num_points;
         do {
             std::cout <<
-            "Enter # of random points to generate (min 3, max 1000): ";
+            "Enter # of random points to generate (min 3, max 10,000): ";
             if (std::cin >> num_points; !std::cin.good()) {
                 std::cerr << "ERROR: Invalid input." << std::endl;
-            } else if (num_points < 3 || num_points > 1000) {
+            } else if (num_points < 3 || num_points > 10000) {
                 std::cerr << "ERROR: Input out of bounds." << std::endl;
                 num_points = -1;
             }

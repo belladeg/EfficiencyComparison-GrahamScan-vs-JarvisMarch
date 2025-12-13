@@ -70,12 +70,9 @@ sizes.
    ~~~
 
 6. **Run the executable**
-   *On Windows (MinGW/Git Bash):*
     ~~~bash
-   ./ConvexHullAlgorithmComparison.exe
+   Debug/ConvexHullAlgorithmComparison.exe
     ~~~
-
-*(If using Visual Studio, run: 'Debug/ConvexHullAlgorithmComparison.exe')*
 
 ## Usage
 
@@ -88,18 +85,19 @@ dataset. Both the Graham Scan and Jarvis March algorithms will process the
 Select this option to test the algorithms' performance on large datasets.
 
 * You will be prompted to enter the **number of points** to generate.
-* The program will randomly generate coordinates (x, y) up to the specified
-  limit.
+* The program will randomly generate coordinates (x, y) and **automatically
+  save them to 'points.txt'**.
 * This is best for observing how execution time scales as $N$ increases.
 
 ### 2. File Input
 
 Select this option to test specific datasets or edge cases.
 
-* A sample file named 'points.txt' is automatically copied to the build
-  directory.
-* **Tip:** You can edit 'points.txt' in the source folder, then rebuild/run
-  to update the data.
+* The program reads the coordinates currently stored in `points.txt`.
+* **Note:** If you previously ran "Random Generation", `points.txt` will contain
+  that generated dataset.
+* **Tip:** You can manually edit `points.txt` in the source folder to test
+  specific coordinates (remember to rebuild to update the copy).
 
 **Input File Format:**
 The program reads coordinates as a continuous sequence of integers separated by
